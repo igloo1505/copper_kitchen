@@ -38,6 +38,14 @@ const onlyReducer = createReducer(initialState, (builder) => {
 			},
 		};
 	});
+	builder.addCase(Types.HERO_ENTERED, (state) => {
+		return {
+			...state,
+			landing: {
+				heroEntered: true,
+			},
+		};
+	});
 });
 
 export default onlyReducer;

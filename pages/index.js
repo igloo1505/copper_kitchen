@@ -7,7 +7,7 @@ import { onInitialLoad } from "../animations/onLoad";
 const Index = () => {
 	useEffect(() => {
 		if (typeof window !== "undefined") {
-			// onInitialLoad();
+			onInitialLoad();
 		}
 	}, []);
 

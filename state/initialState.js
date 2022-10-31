@@ -8,8 +8,10 @@ const initialState = {
 			message: "",
 			type: null,
 		},
+		landing: {
+			heroEntered: false,
+		},
 	},
 };
 
-
-export default initialState
+export default initialState;

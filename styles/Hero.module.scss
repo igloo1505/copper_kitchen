@@ -12,6 +12,7 @@
 
 .copper_heroImage {
 	object-fit: cover;
+	// transform-origin: top left;
 	object-position: center;
 	width: 160vw !important;
 	max-width: unset !important;
@@ -38,8 +39,9 @@
 	transform: translate(calc(100vw - 60%), calc(50vh - 35%));
 }
 .copper_heroImage_tallNarrow {
-	width: 200vw !important;
-	transform: translate(calc(100vw - 70%), 0px);
+	width: 300vw !important;
+	// height: 236vw !important;
+	transform: translate(calc(100vw - 50%), 0px);
 }
 
 .copper_heroImage_ultraWide {
@@ -50,8 +52,26 @@
 .copper_heroImage_enter {
 	object-fit: cover;
 	object-position: center;
-	width: 100% !important;
-	height: 100% !important;
+	width: 100vw !important;
+	// height: auto !important;
 	top: 0 !important;
 	left: 0 !important;
+	transform: translateX(0px);
+
+	// transform: translateX(0px, );
+}
+
+.copper_heroImage_enter_narrow {
+	border: 2px solid blue;
+}
+.copper_heroImage_enter_tallNarrow {
+	// height: 118vw !important;
+	transform: translate(calc(100vw - 70%), 0px);
+}
+.copper_heroImage_enter_wide {
+	height: 118vw !important;
+	transform: translate(0px, calc(100vh - 93vw));
+}
+.copper_heroImage_enter_ultraWide {
+	border: 2px solid pink;
 }
