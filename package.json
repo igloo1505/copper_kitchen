@@ -1,20 +1,42 @@
 {
-  "name": "copper_kitchen",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "13.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "eslint": "8.26.0",
-    "eslint-config-next": "13.0.0"
-  }
+	"name": "copper_kitchen",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"analyze": "ANALYZE=true next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@next/bundle-analyzer": "^13.0.0",
+		"@reduxjs/toolkit": "^1.8.6",
+		"axios": "^1.1.3",
+		"bcryptjs": "^2.4.3",
+		"clsx": "^1.2.1",
+		"colors": "^1.4.0",
+		"cookies": "^0.8.0",
+		"gsap": "^3.11.3",
+		"mobile-device-detect": "^0.4.3",
+		"mongodb": "^4.11.0",
+		"mongoose": "^6.7.0",
+		"next": "13.0.0",
+		"next-connect": "^0.13.0",
+		"next-pwa": "^5.6.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-ga4": "^1.4.1",
+		"react-hot-toast": "^2.4.0",
+		"react-icons": "^4.6.0",
+		"react-redux": "^8.0.4",
+		"react-spring": "^9.5.5",
+		"sass": "^1.55.0",
+		"swr": "^1.3.0",
+		"the-new-css-reset": "^1.7.3"
+	},
+	"devDependencies": {
+		"eslint": "8.26.0",
+		"eslint-config-next": "13.0.0"
+	}
 }
