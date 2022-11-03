@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import styles from "../styles/Index.module.scss";
 import { onInitialLoad } from "../animations/onLoad";
 const Index = () => {
+	const [hasCalledInitialRender, setHasCalledInitialRender] = useState(false);
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			onInitialLoad();

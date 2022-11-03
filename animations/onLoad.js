@@ -5,13 +5,16 @@ import { clearOldClasses, getDeviceBasedClass } from "../utils/resizeObserver";
 import store from "../state/store";
 import * as Types from "../state/Types";
 
+let hasSetInitialRender = false;
 export const onInitialLoad = (e) => {
-	if (typeof window === "undefined") {
+	if (typeof window === "undefined" || hasSetInitialRender) {
 		return;
 	}
+	hasSetInitialRender = true;
 
 	let vpType = getDeviceBasedClass();
 	let em = document.getElementById(ids.copper_heroImage);
+	console.log("run twice?");
 	setTimeout(() => {
 		if (store.getState().UI.landing.heroEntered) {
 			return;
@@ -21,11 +24,15 @@ export const onInitialLoad = (e) => {
 			"transform 1.5s ease-in-out, width 2s ease-in-out 0.5s, height 2s ease-in-out 0.5s";
 		_em.classList.add(heroStyles.copper_heroImage_enter);
 		_em.classList.add(heroStyles[`copper_heroImage_enter_${vpType}`]);
+		let hero = document.getElementById(ids.heroOverlay);
 		setTimeout(() => {
-			_em.style.transition = "unset";
+			hero.classList.add(heroStyles.heroOverlay_enter);
 			store.dispatch({
 				type: Types.HERO_ENTERED,
 			});
-		}, 3500);
-	}, 2500);
+			setTimeout(() => {
+				_em.style.transition = "unset";
+			}, 500);
+		}, 2000);
+	}, 500);
 };

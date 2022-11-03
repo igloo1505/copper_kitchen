@@ -10,10 +10,8 @@ export default function Document() {
 					href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
 					rel="stylesheet"
 				/>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 				<link
-					href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,200;1,400&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap"
 					rel="stylesheet"
 				/>
 

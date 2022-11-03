@@ -12,6 +12,7 @@ let vpTypes = {
 
 export const clearOldClasses = (newClass, em, baseClass, clearAll) => {
 	Object.keys(vpTypes).forEach((k, i) => {
+		if (newClass === "") clearAll = true;
 		if (k === newClass && !clearAll) {
 			return;
 		}
@@ -34,25 +35,18 @@ export const getDeviceBasedClass = () => {
 	if (r > 1.5) vpType = vpTypes.tallNarrow;
 	if (r > 1.08 && r < 1.5) vpType = vpTypes.narrow;
 	if (r < 0.85) vpType = vpTypes.wide;
-	// debugger;
 	return vpType;
 };
 
 export const setHeroScale = (e, force) => {
 	let em = document.getElementById(ids.copper_heroImage);
 	let hasEntered = store.getState().UI.landing.heroEntered;
-	// if (force) {
-	// 	em.style.transition = "all 0s";
-	// }
-	// if (!force) {
-	// 	em.style.transition = "all 1.5s ease-in-out";
-	// }
 	em.style.transition = "unset";
 	let vpType = getDeviceBasedClass();
 	let b = hasEntered ? "copper_heroImage_enter" : "copper_heroImage";
 	let _em = clearOldClasses(vpType, em, b);
-	// debugger;
 	_em.classList.add(heroStyles[`${b}_${vpType}`]);
+	console.log("vpType: ", vpType);
 };
 
 export const resizeObserver = () => {

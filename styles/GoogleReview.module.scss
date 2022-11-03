@@ -1,0 +1,30 @@
+.reviewsContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.starsLabel {
+	color: #fff;
+	font-size: 1rem;
+	text-align: center;
+	opacity: 0;
+}
+
+.starsContainer {
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.googleRatingStar {
+	color: #ffb627;
+	fill: #ffb627;
+	opacity: 0;
+	width: 2.5rem;
+	height: auto;
+}

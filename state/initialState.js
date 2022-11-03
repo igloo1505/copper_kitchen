@@ -11,6 +11,10 @@ const initialState = {
 		landing: {
 			heroEntered: false,
 		},
+		viewport: {
+			width: 0,
+			height: 0,
+		},
 	},
 };
 
