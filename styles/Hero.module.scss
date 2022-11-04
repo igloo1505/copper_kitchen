@@ -120,21 +120,19 @@
 	font-size: 6rem;
 	transform: translateX(-100vw);
 	opacity: 0;
-	// transition: all 0.75s ease-in-out;
 	font-weight: 700;
 	width: 100%;
 }
+
 .heroTitle2 {
 	margin-left: 3rem;
 }
 
 .heroInfoContainer {
 	div {
-		// font-size: 1.3rem;
 		color: #fff;
 		a {
 			width: 100%;
-			// font-size: 1rem;
 			color: #fff;
 			display: flex;
 			flex-direction: row;
@@ -160,7 +158,6 @@
 
 .hoursText {
 	text-align: center;
-	// margin: 1rem 0 1rem 0;
 	margin: 1rem 0 0 0;
 	font-size: 1.3rem;
 	position: relative;
@@ -178,8 +175,7 @@
 .svgBorder {
 	stroke-dasharray: 140 540;
 	stroke-dashoffset: calc(100% - 8px);
-	// 140 + ((w - 140) / 2) - 8
-	stroke-width: 8px;
+	stroke-width: 4px;
 	fill: transparent;
 	stroke: #ffb627;
 	border-bottom: 5px solid black;
