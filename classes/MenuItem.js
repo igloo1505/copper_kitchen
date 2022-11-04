@@ -9,7 +9,7 @@ export class MenuItem {
 	) {
 		this.title = title;
 		this.description = description;
-		this.price = String(price);
+		this.price = typeof price === "float" ? String(price) : price;
 		this.category = category;
 		this.hasAsterisk = hasAsterisk;
 		this.subcategory = subcategory;
@@ -17,7 +17,7 @@ export class MenuItem {
 }
 
 export const bold = (s) => {
-	return <span style="font-weight: 700">${s}</span>;
+	return <span style={{ fontWeight: 700 }}>{s}</span>;
 };
 
 export class CategoryEnum {
@@ -39,7 +39,7 @@ export class CategoryEnum {
 let cat = new CategoryEnum();
 
 export const categorySubTitles = (key) => {
-	let s = "";
+	let s = false;
 	switch (true) {
 		case key === cat.weeklySpecials:
 			s = "Monday - Friday (No Holidays) 7am-11am";
@@ -51,15 +51,16 @@ export const categorySubTitles = (key) => {
 			s = (
 				<p>
 					These are all Omelets which come with toast, hash browns, American
-					fries or seasonal fruit. You can choose to make any omelet a $
-					{bold("skillet (+.50)")} or a ${bold("wrap")}.
+					fries or seasonal fruit. You can choose to make any omelet a
+					{bold(" skillet (+.50)")} or a {bold("wrap")}.
 				</p>
 			);
 			break;
 		case key === cat.burgersAndSandwiches:
 			s = <p>Comes with Soup or Fries. Patties are 1/2 lb Angus Beef.</p>;
-		case key === cat.default:
 			break;
+		default:
+			s = false;
 	}
 	return s;
 };

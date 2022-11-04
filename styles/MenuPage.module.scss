@@ -1,5 +1,8 @@
 @import "/styles/variables";
 $tab-border-radius: 16px;
+$menu-page-container-width: min(calc(100vw - 6rem), 980px);
+$menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
+$menu-page-container-minHeight: 90vh;
 
 .menuTab {
 	padding: 0.75rem 1.35rem;
@@ -19,7 +22,7 @@ $tab-border-radius: 16px;
 		transform-origin: right;
 	}
 }
-.menuTab_2 {
+.menuTab_1 {
 	.menuTabUnderline {
 		transform-origin: center;
 	}
@@ -62,4 +65,30 @@ $tab-border-radius: 16px;
 	margin-bottom: 1rem;
 }
 .menuPageInnerContainer {
+	position: relative;
+}
+
+.permanentSection {
+	margin: 1rem 0;
+}
+
+.menuPageTab {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	opacity: 0;
+	width: $menu-page-container-width;
+	max-width: $menu-page-container-maxwidth;
+	min-height: $menu-page-container-minHeight;
+	transition: opacity 0.7s ease-in-out;
+	transform: translateX(-50%);
+	margin-bottom: 2rem;
+}
+.menuPageTab_visible {
+	visibility: visible;
+	opacity: 1;
 }

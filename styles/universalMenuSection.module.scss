@@ -1,12 +1,22 @@
 @import "/styles/variables";
 
-.Menu_omeletsSkilletsWrapsContainer {
+.outerContainer {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .itemContainer {
 	width: 100%;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.menuCategoryTitleContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
 .titleContainer {
 	font-size: 1.1rem;
@@ -37,9 +47,11 @@
 	margin: 0.15rem 1rem $menu-item-vertical-margin 1rem;
 }
 .menuCategoryTitle {
-	width: 100%;
+	display: inline-block;
 	margin-top: $menu-item-vertical-margin;
 	text-align: center;
+	padding: $menu-category-title-padding;
+	border: $menu-category-title-border;
 	font-size: $menu-category-title-fontSize;
 	font-style: $menu-category-title-fontStyle;
 	font-weight: $menu-category-title-fontWeight;
@@ -57,6 +69,14 @@
 		text-align: center;
 		width: 80%;
 	}
+}
+
+.itemContainer_last {
+	border-bottom: none;
+}
+
+.marginBottom {
+	margin-bottom: $bottom-index-margin;
 }
 
 @media only screen and (max-width: 900px) {

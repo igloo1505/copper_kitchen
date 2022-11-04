@@ -1,5 +1,81 @@
+@import "/styles/variables";
 
-.Menu_breakfastSweetsContainer {
-    border: 1px solid red;
+.outerContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-                
+
+.itemContainer {
+	width: 100%;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.titleContainer {
+	font-size: 1.1rem;
+	margin-top: $menu-item-vertical-margin;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.titleAsterickContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	// gap: 0.25rem;
+}
+.asterick {
+	color: $asterick-color;
+	fill: $asterick-color;
+	height: 0.8rem;
+	width: 0.8rem;
+	transform: translateY(-5px);
+	// font-size: 1.3rem;
+}
+.descriptionContainer {
+	font-size: 1rem;
+	margin: 0.15rem 1rem $menu-item-vertical-margin 1rem;
+}
+.menuCategoryTitle {
+	display: inline-block;
+	margin-top: $menu-item-vertical-margin;
+	text-align: center;
+	padding: $menu-category-title-padding;
+	border: $menu-category-title-border;
+	font-size: $menu-category-title-fontSize;
+	font-style: $menu-category-title-fontStyle;
+	font-weight: $menu-category-title-fontWeight;
+}
+
+.menuCategorySubTitle {
+	font-size: $menu-category-subtitle-fontSize;
+	font-style: $menu-category-subtitle-fontStyle;
+	font-weight: $menu-category-subtitle-fontWeight;
+	margin: 0 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	p {
+		text-align: center;
+		width: 80%;
+	}
+}
+
+.itemContainer_last {
+	border-bottom: none;
+}
+
+.marginBottom {
+	margin-bottom: $bottom-index-margin;
+}
+
+@media only screen and (max-width: 900px) {
+	.menuCategorySubTitle {
+		p {
+			width: calc(100% - 1rem);
+		}
+	}
+}

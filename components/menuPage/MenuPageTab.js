@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import clsx from "clsx";
+import styles from "../../styles/MenuPage.module.scss";
+import * as ids from "../../utils/domIDs";
 
 const MenuPageTab = ({ UI, index, activeIndex, children }) => {
 	const [isShown, setIsShown] = useState(false);
@@ -10,7 +13,11 @@ const MenuPageTab = ({ UI, index, activeIndex, children }) => {
 		setIsShown(false);
 	}, [index, activeIndex]);
 
-	return <div>{children}</div>;
+	return (
+		<div className={clsx(styles.menuPageTab)} id={ids[`menuTab${index}`]}>
+			{children}
+		</div>
+	);
 };
 
 const mapStateToProps = (state, props) => ({

@@ -1,6 +1,7 @@
 import heroStyles from "../styles/Hero.module.scss";
 import * as ids from "./domIDs";
 import store from "../state/store";
+import Router from "next/router";
 
 let vpTypes = {
 	default: "",
@@ -39,6 +40,7 @@ export const getDeviceBasedClass = () => {
 };
 
 export const setHeroScale = (e, force) => {
+	if (Router.asPath !== "/") return;
 	let em = document.getElementById(ids.copper_heroImage);
 	let hasEntered = store.getState().UI.landing.heroEntered;
 	em.style.transition = "unset";

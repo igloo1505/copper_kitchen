@@ -2,7 +2,7 @@ import { MenuItem, CategoryEnum, bold } from "../classes/MenuItem";
 
 let cat = new CategoryEnum();
 
-export const data = [
+const data = [
 	new MenuItem(
 		<p>Omelet of the Day</p>,
 		6.85,
@@ -324,8 +324,8 @@ export const data = [
 		8.95,
 		(
 			<p>
-				Choice of breakfast meat, Bacon or Sausage. Chopped steak $
-				{bold("+2.00")}, Sirloin ${bold("+4.00")}, Flank ${bold("+4.25")}
+				Choice of breakfast meat, Bacon or Sausage. Chopped steak
+				{bold(" +2.00")}, Sirloin {bold("+4.00")}, Flank {bold("+4.25")}
 			</p>
 		),
 		cat.eggsAndSuch,
@@ -392,8 +392,8 @@ export const data = [
 		<p>3.75/7.75/8.65</p>,
 		(
 			<p>
-				Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips. $
-				{bold("+1.65")} Pecans ${bold("+1.95")}.
+				Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips.
+				{bold("+1.65")} Pecans {bold("+1.95")}.
 			</p>
 		),
 		cat.breakfastSweets
@@ -403,8 +403,8 @@ export const data = [
 		<p>3.65/6.95/8.25</p>,
 		(
 			<p>
-				Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips. $
-				{bold("+1.65")} Pecans ${bold("+1.95")}.
+				Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips.
+				{bold("+1.65")} Pecans {bold("+1.95")}.
 			</p>
 		),
 		cat.breakfastSweets
@@ -415,9 +415,11 @@ export const data = [
 		(
 			<p>
 				Choice of one topping: Strawberry, Whip Cream, Blueberry, Apples,
-				Chocolate Chips. ${bold("+1.65")} Pecans ${bold("+1.95")}.
+				Chocolate Chips. {bold("+1.65")} Pecans {bold("+1.95")}.
 			</p>
 		),
 		cat.breakfastSweets
 	),
 ];
+
+export default data;
