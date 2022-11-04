@@ -15,22 +15,20 @@ import buttonStyles from "../styles/HeroButton.module.scss";
 import GoogleReview from "./GoogleReview";
 import reviewStyles from "../styles/GoogleReview.module.scss";
 
+const atLibrary = false;
+
 const Hero = ({
 	UI: {
 		viewport: { width, height },
 		landing: { heroEntered },
 	},
 }) => {
-	const [vpType, setvpType] = useState("");
+	const [hoursHovered, setHoursHovered] = useState(false);
 	useEffect(() => {
 		if (heroEntered) {
 			animateEntrance();
 		}
 	}, [heroEntered]);
-
-	useEffect(() => {
-		setvpType(getDeviceBasedClass());
-	}, [width]);
 
 	useLayoutEffect(() => {
 		if (typeof window === "undefined") {
@@ -45,7 +43,7 @@ const Hero = ({
 	return (
 		<div className={styles.HeroContainer}>
 			<Image
-				src={imagePlaceholder}
+				src={atLibrary ? imagePlaceholder : copperEntrance}
 				className={styles.copper_heroImage}
 				alt="Copper Kitchen Entrance"
 				id={ids.copper_heroImage}
@@ -58,13 +56,13 @@ const Hero = ({
 							className={clsx(styles.heroTitle, "titleFont")}
 							id={ids.heroTitle1}
 						>
-							Some
+							{atLibrary ? "Some" : "Copper"}
 						</div>
 						<div
 							className={clsx(styles.heroTitle, styles.heroTitle2, "titleFont")}
 							id={ids.heroTitle2}
 						>
-							Restaurant
+							{atLibrary ? "Restaurant" : "Kitchen"}
 						</div>
 						<GoogleReview />
 					</div>
@@ -83,8 +81,30 @@ const Hero = ({
 								href="/menu"
 							/>
 						</div>
-						<div className={clsx(styles.heroInfoIndWrapper, styles.hoursText)}>
-							Open Tue thru Sun 7am-3pm{" "}
+						<div
+							className={clsx(styles.heroInfoIndWrapper, styles.hoursText)}
+							onMouseEnter={() => setHoursHovered(true)}
+							onMouseLeave={() => setHoursHovered(false)}
+						>
+							<svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+								<rect
+									className={clsx(
+										styles.svgBorder,
+										hoursHovered && styles.svgBorder_hover
+									)}
+									height="48"
+									width="320"
+								/>
+								<foreignObject
+									width="100%"
+									height="48px"
+									className={styles.foreignObject}
+								>
+									<div className={styles.hoursInner}>
+										Open Tue thru Sun 7am-3pm
+									</div>
+								</foreignObject>
+							</svg>
 						</div>
 						<div className={styles.heroInfoIndWrapper}>
 							<a

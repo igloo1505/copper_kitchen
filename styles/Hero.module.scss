@@ -159,9 +159,42 @@
 }
 
 .hoursText {
-	text-align: left;
-	margin: 1rem 0 1rem 0;
+	text-align: center;
+	// margin: 1rem 0 1rem 0;
+	margin: 1rem 0 0 0;
 	font-size: 1.3rem;
+	position: relative;
+	display: flex;
+	flex: column;
+	justify-content: center;
+	align-items: center;
+}
+.foreignObject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.svgBorder {
+	stroke-dasharray: 140 540;
+	stroke-dashoffset: calc(100% - 8px);
+	// 140 + ((w - 140) / 2) - 8
+	stroke-width: 8px;
+	fill: transparent;
+	stroke: #ffb627;
+	border-bottom: 5px solid black;
+	transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+
+.svgBorder_hover {
+	stroke-width: 2px;
+	stroke-dashoffset: 0;
+	stroke-dasharray: 760;
+}
+
+.hoursInner {
+	position: relative;
+	line-height: 48px;
 }
 
 .heroIcon {
@@ -188,5 +221,6 @@
 	}
 	.hoursText {
 		text-align: center;
+		margin: 1rem 0 0 0;
 	}
 }
