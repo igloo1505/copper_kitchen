@@ -17,7 +17,7 @@ export class MenuItem {
 }
 
 export const bold = (s) => {
-	return `<span style="font-weight: 700">${s}</span>`;
+	return <span style="font-weight: 700">${s}</span>;
 };
 
 export class CategoryEnum {
@@ -36,7 +36,7 @@ export class CategoryEnum {
 	}
 }
 
-let cat = CategoryEnum();
+let cat = new CategoryEnum();
 
 export const categorySubTitles = (key) => {
 	let s = "";
@@ -48,11 +48,17 @@ export const categorySubTitles = (key) => {
 			s = "For ages 12 and under";
 			break;
 		case key === cat.omeletsSkilletsWraps:
-			s = `These are all Omelets which come with toast, hash browns, American fries or seasonal fruit. You can choose to make any omelet a ${bold(
-				"skillet (+.50)"
-			)} or a ${bold("wrap")}.`;
+			s = (
+				<p>
+					These are all Omelets which come with toast, hash browns, American
+					fries or seasonal fruit. You can choose to make any omelet a $
+					{bold("skillet (+.50)")} or a ${bold("wrap")}.
+				</p>
+			);
 			break;
-		default:
+		case key === cat.burgersAndSandwiches:
+			s = <p>Comes with Soup or Fries. Patties are 1/2 lb Angus Beef.</p>;
+		case key === cat.default:
 			break;
 	}
 	return s;

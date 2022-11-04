@@ -1,3 +1,5 @@
+@import "/styles/variables";
+
 .HeroContainer {
 	display: flex;
 	flex-direction: column;
@@ -177,7 +179,7 @@
 	stroke-dashoffset: calc(100% - 8px);
 	stroke-width: 4px;
 	fill: transparent;
-	stroke: #ffb627;
+	stroke: $brand-color;
 	border-bottom: 5px solid black;
 	transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }

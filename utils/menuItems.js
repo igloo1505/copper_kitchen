@@ -2,313 +2,422 @@ import { MenuItem, CategoryEnum, bold } from "../classes/MenuItem";
 
 let cat = new CategoryEnum();
 
-let data = [
-	new MenuItem("Omelet of the Day", 6.85, "Ask waitstaff", cat.weeklySpecials),
+export const data = [
 	new MenuItem(
-		"2x2 or Grand Slam",
+		<p>Omelet of the Day</p>,
+		6.85,
+		<p>Ask waitstaff</p>,
+		cat.weeklySpecials
+	),
+	new MenuItem(
+		<p>2x2 or Grand Slam</p>,
 		7.5,
-		"2 eggs, 2 sausage and 2 bacon, 2 pancakes or French toast.",
+		<p>2 eggs, 2 sausage and 2 bacon, 2 pancakes or French toast.</p>,
 		cat.weeklySpecials
 	),
 	new MenuItem(
-		"Belt Buster",
+		<p>Belt Buster</p>,
 		8.75,
-		"2 eggs, 2 sausage and 2 bacon, hash browns or American Fries.",
+		<p>2 eggs, 2 sausage and 2 bacon, hash browns or American Fries.</p>,
 		cat.weeklySpecials
 	),
 	new MenuItem(
-		"Grandmas Breakfast",
+		<p>Grandmas Breakfast</p>,
 		8.45,
-		"American Fries mixed with green peppers, onions, sausage and cheddar cheese.",
+		(
+			<p>
+				American Fries mixed with green peppers, onions, sausage and cheddar
+				cheese.
+			</p>
+		),
 		cat.weeklySpecials
 	),
 	new MenuItem(
-		"Mickey Mouse Pancakes",
+		<p>Mickey Mouse Pancakes</p>,
 		3.95,
-		"Add 2 pieces of bacon or sausage for 1.00",
+		<p>Add 2 pieces of bacon or sausage for 1.00</p>,
 		cat.kidsSpecials
 	),
 	new MenuItem(
-		"One Egg",
+		<p>One Egg</p>,
 		4.5,
-		"2 bacon or sausage, hash browns and toast",
+		<p>2 bacon or sausage, hash browns and toast</p>,
 		cat.kidsSpecials
 	),
 	new MenuItem(
-		"Short Stack or Silver Dollars",
+		<p>Short Stack or Silver Dollars</p>,
 		4.85,
-		"Add 2 pieces of bacon or sausage for 1.00",
+		<p>Add 2 pieces of bacon or sausage for 1.00</p>,
 		cat.kidsSpecials
 	),
 	new MenuItem(
-		"2 Piece Chicken Tenders",
+		<p>2 Piece Chicken Tenders</p>,
 		5.85,
-		"Includes French Fries",
+		<p>Includes French Fries</p>,
 		cat.kidsSpecials
 	),
-	new MenuItem("Cheeseburger", 5.95, "Includes French Fries", cat.kidsSpecials),
 	new MenuItem(
-		"Classic Burger",
+		<p>Cheeseburger</p>,
+		5.95,
+		<p>Includes French Fries</p>,
+		cat.kidsSpecials
+	),
+	new MenuItem(
+		<p>Classic Burger</p>,
 		10.75,
-		"Cheese, lettuce, tomato, onion. Add Bacon +2.00. Add Egg +1.50.",
+		<p>Cheese, lettuce, tomato, onion. Add Bacon +2.00. Add Egg +1.50.</p>,
 		cat.burgersAndSandwiches,
 		true
 	),
 	new MenuItem(
-		"Southwest Burger",
+		<p>Southwest Burger</p>,
 		11.75,
-		"Pepper jack cheese, salsa, onion, tomato, chipotle, avocado, jalapeños.",
+		(
+			<p>
+				Pepper jack cheese, salsa, onion, tomato, chipotle, avocado, jalapeños.
+			</p>
+		),
 		cat.burgersAndSandwiches,
 		true
 	),
 	new MenuItem(
-		"The Texan Burger",
+		<p>The Texan Burger</p>,
 		11.99,
-		"Colby cheese, bacon, sautéed onions, green peppers, mushrooms.",
+		<p>Colby cheese, bacon, sautéed onions, green peppers, mushrooms.</p>,
 		cat.burgersAndSandwiches,
 		true
 	),
 	new MenuItem(
-		"Patty Melt",
+		<p>Patty Melt</p>,
 		10.95,
-		"American cheese, sautéed onions on rye bread.",
+		<p>American cheese, sautéed onions on rye bread.</p>,
 		cat.burgersAndSandwiches,
 		true
 	),
 	new MenuItem(
-		"Steak Melt",
+		<p>Steak Melt</p>,
 		12.25,
-		"Flank steak, sautéed onions, provolone, colby, pepper jack cheese on panini bread.",
+		(
+			<p>
+				Flank steak, sautéed onions, provolone, colby, pepper jack cheese on
+				panini bread.
+			</p>
+		),
 		cat.burgersAndSandwiches,
 		true
 	),
 	new MenuItem(
-		"Reuben",
+		<p>Reuben</p>,
 		11.95,
-		"Corned beef, swiss cheese, sauerkraut on rye and thousand island dressing.",
+		(
+			<p>
+				Corned beef, swiss cheese, sauerkraut on rye and thousand island
+				dressing.
+			</p>
+		),
 		cat.burgersAndSandwiches,
 		false
 	),
 	new MenuItem(
-		"B.L.T",
+		<p>B.L.T</p>,
 		9.75,
-		"Bacon, lettuce, tomato, mayo on toast.",
+		<p>Bacon, lettuce, tomato, mayo on toast.</p>,
 		cat.burgersAndSandwiches,
 		false
 	),
 	new MenuItem(
-		"Cali Chicken",
+		<p>Cali Chicken</p>,
 		11.75,
-		"Colby cheese, avocado, tomato, onion, lettuce and chipotle sauce on panini bread.",
+		(
+			<p>
+				Colby cheese, avocado, tomato, onion, lettuce and chipotle sauce on
+				panini bread.
+			</p>
+		),
 		cat.burgersAndSandwiches,
 		false
 	),
 	new MenuItem(
-		"Monterey Chicken",
+		<p>Monterey Chicken</p>,
 		11.75,
-		"Colby cheese, provolone cheese, bacon, lettuce and onion.",
+		<p>Colby cheese, provolone cheese, bacon, lettuce and onion.</p>,
 		cat.burgersAndSandwiches,
 		false
 	),
 	new MenuItem(
-		"Gyro Sandwich",
+		<p>Gyro Sandwich</p>,
 		10.25,
-		"Gyro meat, onion, tomato",
+		<p>Gyro meat, onion, tomato</p>,
 		cat.burgersAndSandwiches,
 		false
 	),
 	new MenuItem(
-		"Fountain Sodas",
-		"2.40 M / 2.85 L",
+		<p>Fountain Sodas</p>,
+		<p>2.40 M / 2.85 L</p>,
 		null,
 		cat.extras,
 		false,
 		cat.beverages
 	),
 	new MenuItem(
-		"Iced Tea",
-		"3.35 M / 3.55 L",
+		<p>Iced Tea</p>,
+		<p>3.35 M / 3.55 L</p>,
 		null,
 		cat.extras,
 		false,
 		cat.beverages
 	),
 	new MenuItem(
-		"Juices",
-		"3.85 S / 4.50 M / 5.00 L",
+		<p>Juices</p>,
+		<p>3.85 S / 4.50 M / 5.00 L</p>,
 		null,
 		cat.extras,
 		false,
 		cat.beverages
 	),
-	new MenuItem("Coffee", 2.5, null, cat.extras, false, cat.beverages),
-	new MenuItem("Hot Tea", 2.5, null, cat.extras, false, cat.beverages),
+	new MenuItem(<p>Coffee</p>, 2.5, null, cat.extras, false, cat.beverages),
+	new MenuItem(<p>Hot Tea</p>, 2.5, null, cat.extras, false, cat.beverages),
 	new MenuItem(
-		"Milk",
-		"2.75 M / 4.50 L",
+		<p>Milk</p>,
+		<p>2.75 M / 4.50 L</p>,
 		null,
 		cat.extras,
 		false,
 		cat.beverages
 	),
-	new MenuItem("Cappuccino", "4.55", null, cat.extras, false, cat.beverages),
-	new MenuItem("Milk Shakes", 5.75, null, cat.extras, false, cat.beverages),
-	new MenuItem("Bloody Mary", 7.0, null, cat.extras, false, cat.beverages),
-	new MenuItem("Mimosa", 6.25, null, cat.extras, false, cat.beverages),
 	new MenuItem(
-		"Mixed Drink",
-		"6.85 S / 8.00 L",
+		<p>Cappuccino</p>,
+		<p>4.55</p>,
 		null,
 		cat.extras,
 		false,
 		cat.beverages
 	),
-	new MenuItem("Bottled Beer", 3.5, null, cat.extras, false, cat.beverages),
 	new MenuItem(
-		"Cali",
+		<p>Milk Shakes</p>,
+		5.75,
+		null,
+		cat.extras,
+		false,
+		cat.beverages
+	),
+	new MenuItem(<p>Bloody Mary</p>, 7.0, null, cat.extras, false, cat.beverages),
+	new MenuItem(<p>Mimosa</p>, 6.25, null, cat.extras, false, cat.beverages),
+	new MenuItem(
+		<p>Mixed Drink</p>,
+		<p>6.85 S / 8.00 L</p>,
+		null,
+		cat.extras,
+		false,
+		cat.beverages
+	),
+	new MenuItem(
+		<p>Bottled Beer</p>,
+		3.5,
+		null,
+		cat.extras,
+		false,
+		cat.beverages
+	),
+	new MenuItem(
+		<p>Cali</p>,
 		9.75,
-		"Avocado, tomato, onion, cucumber, cilantro. and lettuce. Add Chicken +1.50.",
+		(
+			<p>
+				Avocado, tomato, onion, cucumber, cilantro. and lettuce. Add Chicken
+				+1.50.
+			</p>
+		),
 		cat.salad
 	),
 	new MenuItem(
-		"Pecan Salad",
+		<p>Pecan Salad</p>,
 		10.25,
-		"Pecans, feta cheese, bacon, spinach, tomato and lettuce",
+		<p>Pecans, feta cheese, bacon, spinach, tomato and lettuce</p>,
 		cat.salad
 	),
 	new MenuItem(
-		"Bacon, sausage link/patties, ham, canadian bacon",
+		<p>Bacon, sausage link/patties, ham, canadian bacon</p>,
 		3.95,
 		null,
 		cat.extras,
 		false,
 		cat.sides
 	),
-	new MenuItem("Corned beef hash", 4.95, null, cat.extras, false, cat.sides),
-	new MenuItem("Toast", 2.45, null, cat.extras, false, cat.sides),
 	new MenuItem(
-		"Bagel or English muffin",
+		<p>Corned beef hash</p>,
+		4.95,
+		null,
+		cat.extras,
+		false,
+		cat.sides
+	),
+	new MenuItem(<p>Toast</p>, 2.45, null, cat.extras, false, cat.sides),
+	new MenuItem(
+		<p>Bagel or English muffin</p>,
 		2.75,
 		null,
 		cat.extras,
 		false,
 		cat.sides
 	),
-	new MenuItem("Oatmeal", 3.45, null, cat.extras, false, cat.sides),
-	new MenuItem("Hash browns", 3.55, null, cat.extras, false, cat.sides),
-	new MenuItem("One Egg", 1.99, null, cat.extras, false, cat.sides),
-	new MenuItem("Avocado Slices", 2.95, null, cat.extras, false, cat.sides),
-	new MenuItem("Ice Cream", 3.55, null, cat.extras, false, cat.sides),
+	new MenuItem(<p>Oatmeal</p>, 3.45, null, cat.extras, false, cat.sides),
+	new MenuItem(<p>Hash browns</p>, 3.55, null, cat.extras, false, cat.sides),
+	new MenuItem(<p>One Egg</p>, 1.99, null, cat.extras, false, cat.sides),
+	new MenuItem(<p>Avocado Slices</p>, 2.95, null, cat.extras, false, cat.sides),
+	new MenuItem(<p>Ice Cream</p>, 3.55, null, cat.extras, false, cat.sides),
 	new MenuItem(
-		"Copper Kitchen",
+		<p>Copper Kitchen</p>,
 		9.85,
-		"Bacon, sausage, ham, green peppers, mushrooms, onions, tomatoes. American and swiss cheese.",
+		(
+			<p>
+				Bacon, sausage, ham, green peppers, mushrooms, onions, tomatoes.
+				American and swiss cheese.
+			</p>
+		),
 		cat.omeletsSkilletsWraps
 	),
 	new MenuItem(
-		"Cali",
+		<p>Cali</p>,
 		9.85,
-		"Avocado, spinach, mushrooms, tomato and feta cheese.",
+		<p>Avocado, spinach, mushrooms, tomato and feta cheese.</p>,
 		cat.omeletsSkilletsWraps
 	),
 	new MenuItem(
-		"Denver",
+		<p>Denver</p>,
 		9.75,
-		"Ham, green peppers, onions and American cheese.",
+		<p>Ham, green peppers, onions and American cheese.</p>,
 		cat.omeletsSkilletsWraps
 	),
 	new MenuItem(
-		"Veggie",
+		<p>Veggie</p>,
 		8.75,
-		"Mushrooms, onions, green peppers, tomato and American cheese.",
+		<p>Mushrooms, onions, green peppers, tomato and American cheese.</p>,
 		cat.omeletsSkilletsWraps
 	),
 	new MenuItem(
-		"Philly",
+		<p>Philly</p>,
 		11.75,
-		"Flank steak, green peppers, onions and provolone cheese.",
+		<p>Flank steak, green peppers, onions and provolone cheese.</p>,
 		cat.omeletsSkilletsWraps,
 		true
 	),
 	new MenuItem(
-		"Southwest",
+		<p>Southwest</p>,
 		10.25,
-		"Chorizo, tomatoes, green peppers, jalapeños, onions and pepper jack cheese.",
+		(
+			<p>
+				Chorizo, tomatoes, green peppers, jalapeños, onions and pepper jack
+				cheese.
+			</p>
+		),
 		cat.omeletsSkilletsWraps
 	),
 	new MenuItem(
-		"Gyro",
+		<p>Gyro</p>,
 		9.85,
-		"Gyro meat, feta cheese, onion, tomato.",
+		<p>Gyro meat, feta cheese, onion, tomato.</p>,
 		cat.omeletsSkilletsWraps
 	),
 	new MenuItem(
-		"Two Eggs and Breakfast Meat",
+		<p>Two Eggs and Breakfast Meat</p>,
 		8.95,
-		`Choice of breakfast meat, Bacon or Sausage. Chopped steak ${bold(
-			"+2.00"
-		)}, Sirloin ${bold("+4.00")}, Flank ${bold("+4.25")}`,
+		(
+			<p>
+				Choice of breakfast meat, Bacon or Sausage. Chopped steak $
+				{bold("+2.00")}, Sirloin ${bold("+4.00")}, Flank ${bold("+4.25")}
+			</p>
+		),
 		cat.eggsAndSuch,
 		true
 	),
 	new MenuItem(
-		"Eggs Benedict",
+		<p>Eggs Benedict</p>,
 		11.85,
-		"Choice of has browns or American fries.",
+		<p>Choice of has browns or American fries.</p>,
 		cat.breakfastSandwich
 	),
 	new MenuItem(
-		"Avocado B.L.T.",
+		<p>Avocado B.L.T.</p>,
 		9.85,
-		"BLT with choice of egg and avocado spread. Choice of hash browns or American fries.",
+		(
+			<p>
+				BLT with choice of egg and avocado spread. Choice of hash browns or
+				American fries.
+			</p>
+		),
 		cat.breakfastSandwich
 	),
 	new MenuItem(
-		"Brunch Sandwich",
+		<p>Brunch Sandwich</p>,
 		7.5,
-		"Egg sandwich with bacon or sausage and cheese. Choice of hash browns or American fries.",
+		(
+			<p>
+				Egg sandwich with bacon or sausage and cheese. Choice of hash browns or
+				American fries.
+			</p>
+		),
 		cat.breakfastSandwich
 	),
 	new MenuItem(
-		"Chicken and Waffles",
+		<p>Chicken and Waffles</p>,
 		10.85,
-		"Waffle, chicken tenders, bacon, cheddar cheese and maple mayo. Choice of hash browns or American fries.",
+		(
+			<p>
+				Waffle, chicken tenders, bacon, cheddar cheese and maple mayo. Choice of
+				hash browns or American fries.
+			</p>
+		),
 		cat.breakfastSandwich
 	),
 	new MenuItem(
-		"Biscuits and Gravy",
+		<p>Biscuits and Gravy</p>,
 		8.75,
-		"Biscuits and sausage gravy",
+		<p>Biscuits and sausage gravy</p>,
 		cat.breakfastSandwich
 	),
 	new MenuItem(
-		"2x2 or Grand Slam",
+		<p>2x2 or Grand Slam</p>,
 		9.85,
-		"(2x2) - 2 eggs, 2 bacon, 2 sausage, 2 pancakes or French Toast (Grand Slam).",
+		(
+			<p>
+				(2x2) - 2 eggs, 2 bacon, 2 sausage, 2 pancakes or French Toast (Grand
+				Slam).
+			</p>
+		),
 		cat.breakfastSweets
 	),
 	new MenuItem(
-		"Pancakes or Crepes 1/2/3pc",
-		"3.75/7.75/8.65",
-		`Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips. ${bold(
-			"+1.65"
-		)} Pecans ${bold("+1.95")}.`,
+		<p>Pancakes or Crepes 1/2/3pc</p>,
+		<p>3.75/7.75/8.65</p>,
+		(
+			<p>
+				Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips. $
+				{bold("+1.65")} Pecans ${bold("+1.95")}.
+			</p>
+		),
 		cat.breakfastSweets
 	),
 	new MenuItem(
-		"French Toast 1/2/3pc",
-		"3.65/6.95/8.25",
-		`Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips. ${bold(
-			"+1.65"
-		)} Pecans ${bold("+1.95")}.`,
+		<p>French Toast 1/2/3pc</p>,
+		<p>3.65/6.95/8.25</p>,
+		(
+			<p>
+				Choice of one topping: Strawberry, Blueberry, Apples, Chocolate Chips. $
+				{bold("+1.65")} Pecans ${bold("+1.95")}.
+			</p>
+		),
 		cat.breakfastSweets
 	),
 	new MenuItem(
-		"Belgium Waffle/Bacon Waffle",
-		"8.25/9.50",
-		`Choice of one topping: Strawberry, Whip Cream, Blueberry, Apples, Chocolate Chips. ${bold(
-			"+1.65"
-		)} Pecans ${bold("+1.95")}.`,
+		<p>Belgium Waffle/Bacon Waffle</p>,
+		<p>8.25/9.50</p>,
+		(
+			<p>
+				Choice of one topping: Strawberry, Whip Cream, Blueberry, Apples,
+				Chocolate Chips. ${bold("+1.65")} Pecans ${bold("+1.95")}.
+			</p>
+		),
 		cat.breakfastSweets
 	),
 ];
