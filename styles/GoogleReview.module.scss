@@ -28,3 +28,9 @@
 	width: 2.5rem;
 	height: auto;
 }
+
+@media only screen and (max-width: 900px) {
+	.reviewsContainer {
+		margin: 2rem 0;
+	}
+}

@@ -23,10 +23,10 @@ const Hero = ({
 		landing: { heroEntered },
 	},
 }) => {
-	const [hoursHovered, setHoursHovered] = useState(false);
+	const [hoursHovered, setHoursHovered] = useState(true);
 	useEffect(() => {
 		if (heroEntered) {
-			animateEntrance();
+			animateEntrance({ onComplete: () => setHoursHovered(false) });
 		}
 	}, [heroEntered]);
 
@@ -36,9 +36,6 @@ const Hero = ({
 		}
 		setHeroScale(null, "force");
 	}, []);
-	const handleButtonClick = (name) => {
-		console.log("was clicked: ", name);
-	};
 
 	return (
 		<div className={styles.HeroContainer}>
@@ -70,16 +67,10 @@ const Hero = ({
 						<div className={styles.heroButtonsContainer}>
 							<HeroButton
 								id={ids.GalleryButton}
-								onClick={handleButtonClick}
 								text="Gallery"
 								href="/gallery"
 							/>
-							<HeroButton
-								id={ids.MenuButton}
-								onClick={handleButtonClick}
-								text="Menu"
-								href="/menu"
-							/>
+							<HeroButton id={ids.MenuButton} text="Menu" href="/menu" />
 						</div>
 						<div
 							className={clsx(styles.heroInfoIndWrapper, styles.hoursText)}
@@ -117,7 +108,7 @@ const Hero = ({
 							</a>
 						</div>
 						<div className={styles.heroInfoIndWrapper}>
-							<a href="4144821315">
+							<a href="tel:4144821315">
 								<BsFillTelephoneFill className={styles.heroIcon} />
 								(414) 482-1315
 							</a>
@@ -136,10 +127,10 @@ const mapStateToProps = (state, props) => ({
 
 export default connect(mapStateToProps)(Hero);
 
-const animateEntrance = () => {
+const animateEntrance = ({ onComplete }) => {
 	console.log("Animating Entrance");
 	let _id = ids._id;
-	let tl = gsap.timeline();
+	let tl = gsap.timeline({ onComplete: onComplete });
 	tl.to(_id(ids.heroTitle1), {
 		opacity: 1,
 		x: 0,
