@@ -10,11 +10,9 @@ export const onInitialLoad = (e) => {
 	if (typeof window === "undefined" || hasSetInitialRender) {
 		return;
 	}
-	hasSetInitialRender = true;
-
+	// hasSetInitialRender = true;
 	let vpType = getDeviceBasedClass();
 	let em = document.getElementById(ids.copper_heroImage);
-	console.log("run twice?");
 	setTimeout(() => {
 		if (store.getState().UI.landing.heroEntered) {
 			return;

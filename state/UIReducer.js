@@ -38,11 +38,15 @@ const onlyReducer = createReducer(initialState, (builder) => {
 			},
 		};
 	});
-	builder.addCase(Types.HERO_ENTERED, (state) => {
+	builder.addCase(Types.HERO_ENTERED, (state, action) => {
 		return {
 			...state,
 			landing: {
-				heroEntered: true,
+				heroEntered:
+					typeof action.payload !== "undefined" &&
+					typeof action.payload !== "null"
+						? action.payload
+						: true,
 			},
 		};
 	});

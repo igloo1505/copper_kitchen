@@ -6,12 +6,26 @@ import store from "../state/store";
 import Script from "next/script";
 // import ReactGA from "react-ga4";
 // import ttiPolyfill from "tti-polyfill";
+import { useRouter } from "next/router";
 import { setViewport } from "../state/actions";
 import useSWR, { SWRConfig } from "swr";
 import { axiosFetcher, localStorageHandler } from "../utils/swrHandler";
 import { resizeObserver } from "../utils/resizeObserver";
+import * as Types from "../state/Types";
 
 function MyApp({ Component, pageProps }) {
+	const router = useRouter();
+	useEffect(() => {
+		if (typeof window === "undefined") {
+			return;
+		}
+		if (router.asPath !== "/") {
+			store.dispatch({
+				type: Types.HERO_ENTERED,
+				payload: false,
+			});
+		}
+	}, [router]);
 	useEffect(() => {
 		if (typeof window === "undefined") {
 			return;
