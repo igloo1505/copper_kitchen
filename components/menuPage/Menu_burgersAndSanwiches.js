@@ -1,20 +1,48 @@
 import React, { useState, useEffect } from "react";
-import styles from "../../styles/Menu_burgersAndSanwiches.module.scss";
+import styles from "../../styles/universalMenuSection.module.scss";
 import { connect } from "react-redux";
+import data from "../../utils/menuItems";
+import clsx from "clsx";
+import { CategoryEnum, categorySubTitles } from "../../classes/MenuItem";
+import { RiAsterisk } from "react-icons/ri";
 
-const Menu_burgersAndSanwiches = ({ UI }) => {
-	//const { data, error } = useSWR(
-	//"https://api.github.com/repos/vercel/swr",
-	//fetcher
-	//);
+const Menu_burgersAndSandwiches = ({ isBottomIndex }) => {
+	let cat = new CategoryEnum().burgersAndSandwiches;
 	return (
-		<div className={styles.Menu_burgersAndSanwichesContainer}>
-			Menu_burgersAndSanwiches
+		<div className={styles.outerContainer}>
+			<div className={styles.menuCategoryTitleContainer}>
+				<div className={styles.menuCategoryTitle}>{cat}</div>
+			</div>
+			{categorySubTitles(cat) && (
+				<div className={styles.menuCategorySubTitle}>
+					{categorySubTitles(cat)}
+				</div>
+			)}
+			{data
+				.filter((d) => d.category === cat)
+				.map((d, i, a) => {
+					return (
+						<div
+							className={clsx(
+								styles.itemContainer,
+								i === a.length - 1 && styles.itemContainer_last,
+								isBottomIndex && styles.marginBottom
+							)}
+							key={`eggsAndSuchItem-${i}`}
+						>
+							<div className={styles.titleContainer}>
+								<div className={styles.titleAsterickContainer}>
+									{d.title}
+									{d.hasAsterisk && <RiAsterisk className={styles.asterick} />}
+								</div>
+								<div className={styles.priceContainer}>{d.price}</div>
+							</div>
+							<div className={styles.descriptionContainer}>{d.description}</div>
+						</div>
+					);
+				})}
 		</div>
 	);
 };
-const mapStateToProps = (state, props) => ({
-	UI: state.UI,
-	props: props,
-});
-export default connect(mapStateToProps)(Menu_burgersAndSanwiches);
+
+export default Menu_burgersAndSandwiches;

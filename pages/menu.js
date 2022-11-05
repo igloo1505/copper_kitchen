@@ -89,7 +89,6 @@ const Menu = ({ UI, props }) => {
 				</MenuPageTab>
 				<MenuPageTab index={1} activeIndex={tabIndex}>
 					<Menu_burgersAndSandwiches />
-					<Menu_weeklySpecials />
 					<Menu_Salad isBottomIndex />
 				</MenuPageTab>
 				<MenuPageTab index={0} activeIndex={tabIndex}>
