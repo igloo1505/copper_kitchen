@@ -4,7 +4,14 @@ import clsx from "clsx";
 import styles from "../../styles/MenuPage.module.scss";
 import * as ids from "../../utils/domIDs";
 
-const MenuPageTab = ({ UI, index, activeIndex, children }) => {
+const MenuPageTab = ({
+	UI,
+	index,
+	activeIndex,
+	children,
+	initialPage,
+	isInitialTab,
+}) => {
 	const [isShown, setIsShown] = useState(false);
 	useEffect(() => {
 		if (activeIndex === index) {
@@ -15,7 +22,13 @@ const MenuPageTab = ({ UI, index, activeIndex, children }) => {
 
 	return (
 		<div className={styles.menuPageTabRelWrapper}>
-			<div className={styles.menuPageTab} id={ids[`menuPageTab${index}`]}>
+			<div
+				className={clsx(
+					styles.menuPageTab,
+					initialPage && isInitialTab && styles.menuPageTab_initial
+				)}
+				id={ids[`menuPageTab${index}`]}
+			>
 				{children}
 			</div>
 		</div>

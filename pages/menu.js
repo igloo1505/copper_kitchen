@@ -16,6 +16,7 @@ import Menu_burgersAndSandwiches from "../components/menuPage/Menu_burgersAndSan
 import Menu_omeletsSkilletsWraps from "../components/menuPage/Menu_omeletsSkilletsWraps";
 import MenuPageTab from "../components/menuPage/MenuPageTab";
 import { hidden } from "colors";
+import MenuTabs from "../components/MenuTabs";
 
 // const handleTabToggle = (activeIndex, newIndex) => {
 // 	if (typeof window === "undefined") return;
@@ -32,102 +33,93 @@ const handleTabToggle = (activeIndex, newIndex) => {
 	let tl = gsap.timeline();
 	if (typeof window === "undefined") return;
 	let left = activeIndex > newIndex;
+	// NOTE: Exit
+
 	tl.to(`#${ids[`menuPageTab${activeIndex}`]}`, {
 		...(left && { x: "100vw" }),
 		...(!left && { x: "-100vw" }),
-		...(left && { rotateZ: 20 }),
-		...(!left && { rotateZ: -20 }),
+		// ...(left && { rotateZ: 20 }),
+		// ...(!left && { rotateZ: -20 }),
 		duration: 1,
 		ease: "expo.out",
 	});
+	// tl.fromTo(
+	// 	`#${ids[`menuPageTab${activeIndex}`]}`,
+	// 	{
+	// 		x: "-50%",
+	// 	},
+	// 	{
+	// 		...(left && { x: "150vw" }),
+	// 		...(!left && { x: "-150vw" }),
+	// 		// opacity: 0,
+	// 		// ...(left && { rotateZ: 20 }),
+	// 		// ...(!left && { rotateZ: -20 }),
+	// 		duration: 1.5,
+	// 		ease: "expo.out",
+	// 	}
+	// );
+
 	console.log("Running");
 	// debugger;
-	tl.fromTo(
-		`#${ids[`menuPageTab${newIndex}`]}`,
-		{
-			...(left && { x: "-100vw" }),
-			...(!left && { x: "100vw" }),
-			...(left && { rotateZ: -30 }),
-			...(!left && { rotateZ: 30 }),
-			// visibility: hidden,
-		},
-		{
-			// x: "-50%",
-			x: "-50%",
-			rotateZ: 0,
-			duration: 1,
-			ease: "expo.out",
-		}
-	);
-};
-
-const MenuTab = ({ text, index, activeIndex, setIndex }) => {
-	const [isActive, setIsActive] = useState(false);
-	useEffect(() => {
-		if (activeIndex === index) {
-			return setIsActive(true);
-		}
-		setIsActive(false);
-	}, [activeIndex, index]);
-
-	return (
-		<div
-			className={clsx(
-				styles.menuTab,
-				styles[`menuTab_${index}`],
-				isActive && styles.menuTabActive
-			)}
-			onClick={() => setIndex(index)}
-		>
-			{text}
-			<div className={styles.menuTabUnderline} />
-		</div>
-	);
+	// NOTE: Enter
+	// tl.fromTo(
+	// 	`#${ids[`menuPageTab${newIndex}`]}`,
+	// 	{
+	// 		...(left && { x: "-100vw" }),
+	// 		...(!left && { x: "100vw" }),
+	// 		...(left && { rotateZ: -30 }),
+	// 		...(!left && { rotateZ: 30 }),
+	// 		// visibility: hidden,
+	// 	},
+	// 	{
+	// 		// x: "-50%",
+	// 		x: "-50%",
+	// 		rotateZ: 0,
+	// 		duration: 1,
+	// 		ease: "expo.out",
+	// 	}
+	// );
 };
 
 const Menu = ({ UI, props }) => {
 	const [tabIndex, setTabIndex] = useState(0);
 	const [lastActiveIndex, setLastActiveIndex] = useState(1);
+	const [isInitialTab, setIsInitialTab] = useState(true);
 	useEffect(() => {
-		handleTabToggle(lastActiveIndex, tabIndex);
-		setLastActiveIndex(tabIndex);
+		// debugger;
+		let allow = false;
+		if (isInitialTab && tabIndex !== 0) {
+			// debugger;
+			setIsInitialTab(false);
+			allow = true;
+			let em = document
+				.getElementsByClassName(styles.menuPageTab_initial)
+				?.item(0);
+			// BUG Remove or use this
+			// em?.classList.remove(styles.menuPageTab_initial);
+		}
+		if (!isInitialTab || allow) {
+			handleTabToggle(lastActiveIndex, tabIndex);
+			setLastActiveIndex(tabIndex);
+		}
 	}, [tabIndex]);
 
 	return (
 		<div className={styles.menuPageContainer}>
-			<div className={styles.menuTabContainer}>
-				<MenuTab
-					text="Breakfast"
-					index={0}
-					activeIndex={tabIndex}
-					setIndex={setTabIndex}
-				/>
-				<MenuTab
-					text="Lunch"
-					index={1}
-					activeIndex={tabIndex}
-					setIndex={setTabIndex}
-				/>
-				<MenuTab
-					text="Specials"
-					index={2}
-					activeIndex={tabIndex}
-					setIndex={setTabIndex}
-				/>
-			</div>
+			<MenuTabs activeIndex={tabIndex} setIndex={setTabIndex} />
 			<div className={styles.menuPageInnerContainer}>
-				<MenuPageTab index={2} activeIndex={tabIndex}>
-					<Menu_weeklySpecials />
-					<Menu_kidsSpecials isBottomIndex />
+				<MenuPageTab index={0} activeIndex={tabIndex} initialPage isInitialTab>
+					<Menu_omeletsSkilletsWraps />
+					<Menu_eggsAndSuch />
+					<Menu_breakfastSweets isBottomIndex />
 				</MenuPageTab>
 				<MenuPageTab index={1} activeIndex={tabIndex}>
 					<Menu_burgersAndSandwiches />
 					<Menu_Salad isBottomIndex />
 				</MenuPageTab>
-				<MenuPageTab index={0} activeIndex={tabIndex}>
-					<Menu_omeletsSkilletsWraps />
-					<Menu_eggsAndSuch />
-					<Menu_breakfastSweets isBottomIndex />
+				<MenuPageTab index={2} activeIndex={tabIndex}>
+					<Menu_weeklySpecials />
+					<Menu_kidsSpecials isBottomIndex />
 				</MenuPageTab>
 			</div>
 		</div>
