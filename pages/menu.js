@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import clsx from "clsx";
+import gsap from "gsap";
 import * as ids from "../utils/domIDs";
 import { data } from "../utils/menuItems";
 import { CategoryEnum } from "../classes/MenuItem";
@@ -14,17 +15,50 @@ import Menu_breakfastSweets from "../components/menuPage/Menu_breakfastSweets";
 import Menu_burgersAndSandwiches from "../components/menuPage/Menu_burgersAndSanwiches";
 import Menu_omeletsSkilletsWraps from "../components/menuPage/Menu_omeletsSkilletsWraps";
 import MenuPageTab from "../components/menuPage/MenuPageTab";
+import { hidden } from "colors";
+
+// const handleTabToggle = (activeIndex, newIndex) => {
+// 	if (typeof window === "undefined") return;
+// 	let activeEm = document.getElementById(ids[`menuPageTab${activeIndex}`]);
+// 	let newEm = document.getElementById(ids[`menuPageTab${newIndex}`]);
+// 	activeEm?.classList.remove(styles.menuPageTab_visible);
+// 	setTimeout(() => {
+// 		newEm?.classList.add(styles.menuPageTab_visible);
+// 	});
+// };
 
 const handleTabToggle = (activeIndex, newIndex) => {
+	console.log("activeIndex, newIndex: ", activeIndex, newIndex);
+	let tl = gsap.timeline();
 	if (typeof window === "undefined") return;
-	console.log("activeIndex: ", activeIndex);
-	console.log("ids[`menuTab${activeIndex}`]: ", ids[`menuTab${activeIndex}`]);
-	let activeEm = document.getElementById(ids[`menuTab${activeIndex}`]);
-	let newEm = document.getElementById(ids[`menuTab${newIndex}`]);
-	activeEm.classList.remove(styles.menuPageTab_visible);
-	setTimeout(() => {
-		newEm.classList.add(styles.menuPageTab_visible);
+	let left = activeIndex > newIndex;
+	tl.to(`#${ids[`menuPageTab${activeIndex}`]}`, {
+		...(left && { x: "100vw" }),
+		...(!left && { x: "-100vw" }),
+		...(left && { rotateZ: 20 }),
+		...(!left && { rotateZ: -20 }),
+		duration: 1,
+		ease: "expo.out",
 	});
+	console.log("Running");
+	// debugger;
+	tl.fromTo(
+		`#${ids[`menuPageTab${newIndex}`]}`,
+		{
+			...(left && { x: "-100vw" }),
+			...(!left && { x: "100vw" }),
+			...(left && { rotateZ: -30 }),
+			...(!left && { rotateZ: 30 }),
+			// visibility: hidden,
+		},
+		{
+			// x: "-50%",
+			x: "-50%",
+			rotateZ: 0,
+			duration: 1,
+			ease: "expo.out",
+		}
+	);
 };
 
 const MenuTab = ({ text, index, activeIndex, setIndex }) => {
@@ -52,9 +86,8 @@ const MenuTab = ({ text, index, activeIndex, setIndex }) => {
 };
 
 const Menu = ({ UI, props }) => {
-	let cat = new CategoryEnum();
 	const [tabIndex, setTabIndex] = useState(0);
-	const [lastActiveIndex, setLastActiveIndex] = useState(0);
+	const [lastActiveIndex, setLastActiveIndex] = useState(1);
 	useEffect(() => {
 		handleTabToggle(lastActiveIndex, tabIndex);
 		setLastActiveIndex(tabIndex);

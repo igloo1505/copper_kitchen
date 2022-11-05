@@ -14,8 +14,10 @@ const MenuPageTab = ({ UI, index, activeIndex, children }) => {
 	}, [index, activeIndex]);
 
 	return (
-		<div className={clsx(styles.menuPageTab)} id={ids[`menuTab${index}`]}>
-			{children}
+		<div className={styles.menuPageTabRelWrapper}>
+			<div className={styles.menuPageTab} id={ids[`menuPageTab${index}`]}>
+				{children}
+			</div>
 		</div>
 	);
 };

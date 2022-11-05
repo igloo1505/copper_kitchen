@@ -13,6 +13,7 @@ export const heroInfo1 = "heroInfo1-id";
 export const heroInfo2 = "heroInfo2-id";
 export const heroInfo3 = "heroInfo3-id";
 // menu stuff
-export const menuTab0 = "menuTab1-id";
-export const menuTab1 = "menuTab2-id";
-export const menuTab2 = "menuTab3-id";
+
+export const menuPageTab0 = "menuPageTab1-id";
+export const menuPageTab1 = "menuPageTab2-id";
+export const menuPageTab2 = "menuPageTab3-id";
