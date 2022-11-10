@@ -40,7 +40,7 @@ export const getDeviceBasedClass = () => {
 };
 
 export const setHeroScale = (e, force) => {
-	if (Router.asPath !== "/") return;
+	if (Router.asPath === "/menu") return;
 	let em = document.getElementById(ids.copper_heroImage);
 	let hasEntered = store.getState().UI.landing.heroEntered;
 	em.style.transition = "unset";

@@ -19,14 +19,21 @@ const atLibrary = true;
 
 const Hero = ({
 	UI: {
-		viewport: { width, height },
 		landing: { heroEntered },
 	},
 }) => {
 	const [hoursHovered, setHoursHovered] = useState(true);
 	useEffect(() => {
 		if (heroEntered) {
-			animateEntrance({ onComplete: () => setHoursHovered(false) });
+			animateEntrance({
+				onComplete: () => {
+					setHoursHovered(false);
+					let _em = document.getElementById(ids.copper_heroImage);
+					if (_em) {
+						_em.style.transition = "unset";
+					}
+				},
+			});
 		}
 	}, [heroEntered]);
 
@@ -128,7 +135,6 @@ const mapStateToProps = (state, props) => ({
 export default connect(mapStateToProps)(Hero);
 
 const animateEntrance = ({ onComplete }) => {
-	console.log("Animating Entrance");
 	let _id = ids._id;
 	let tl = gsap.timeline({ onComplete: onComplete });
 	tl.to(_id(ids.heroTitle1), {

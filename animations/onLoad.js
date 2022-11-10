@@ -25,12 +25,11 @@ export const onInitialLoad = (e) => {
 		let hero = document.getElementById(ids.heroOverlay);
 		setTimeout(() => {
 			hero.classList.add(heroStyles.heroOverlay_enter);
-			store.dispatch({
-				type: Types.HERO_ENTERED,
-			});
 			setTimeout(() => {
-				_em.style.transition = "unset";
-			}, 1000);
-		}, 2000);
+				store.dispatch({
+					type: Types.HERO_ENTERED,
+				});
+			}, 750);
+		}, 1500);
 	}, 500);
 };
