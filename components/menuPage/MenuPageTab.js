@@ -14,10 +14,6 @@ const MenuPageTab = ({ UI, index, activeIndex, children }) => {
 				activeIndex === index && styles.menuPageTab_current
 			)}
 			id={ids[`menuPageTab${index}`]}
-			onScroll={(e) => {
-				e.preventDefault();
-				e.stopPropagation();
-			}}
 		>
 			{children}
 		</div>

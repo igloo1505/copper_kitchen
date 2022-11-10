@@ -23,7 +23,13 @@ const Menu = () => {
 	const [tabIndex, setTabIndex] = useState(0);
 
 	return (
-		<div className={styles.menuPageContainer}>
+		<div
+			className={styles.menuPageContainer}
+			// onScroll={(e) => {
+			// 	e.preventDefault();
+			// 	e.stopPropagation();
+			// }}
+		>
 			<div className={styles.menuPageTabRelWrapper}>
 				<MenuTabs activeIndex={tabIndex} setIndex={setTabIndex} />
 				<div className={styles.menuPageInnerContainer}>
