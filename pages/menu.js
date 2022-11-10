@@ -37,7 +37,7 @@ const Menu = () => {
 		console.log("tHeight: ", tHeight, window.innerHeight);
 		_parent.style.height = `${tHeight}px`;
 		window.addEventListener("scroll", (e) => {
-			console.log(e.target);
+			console.log("window", e.target);
 		});
 		document.addEventListener("scroll", (e) => {
 			console.log("document", e.target);

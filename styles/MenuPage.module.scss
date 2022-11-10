@@ -1,7 +1,6 @@
 @import "/styles/variables";
 $menu-page-container-width: min(calc(100vw - 6rem), 980px);
 $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
-$menu-page-container-minHeight: 90vh;
 
 .menuPageContainer {
 	min-height: 100vh;
@@ -46,7 +45,7 @@ $menu-page-container-minHeight: 90vh;
 	left: 50%;
 	width: $menu-page-container-width;
 	max-width: $menu-page-container-maxwidth;
-	min-height: $menu-page-container-minHeight;
+	min-height: 100vh;
 	margin-bottom: 2rem;
 	opacity: 0;
 	transform: translateX(-50%);
