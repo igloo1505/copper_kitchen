@@ -36,13 +36,11 @@ const Menu = () => {
 		let tHeight = tabs.height + tabs.top + _child.height + 4 * 16 + 8;
 		console.log("tHeight: ", tHeight, window.innerHeight);
 		_parent.style.height = `${tHeight}px`;
-		// document.getElementById("__next").addEventListener("scroll", (e) => {
-		// 	console.log(e.target);
-		// });
+		window.addEventListener("scroll", (e) => {
+			console.log(e.target);
+		});
 		document.addEventListener("scroll", (e) => {
-			e.stopImmediatePropagation();
-			e.stopImmediatePropagation();
-			e.preventDefault();
+			console.log("document", e.target);
 		});
 	}, [tabIndex]);
 

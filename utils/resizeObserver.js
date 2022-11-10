@@ -11,8 +11,10 @@ let vpTypes = {
 	ultraWide: "ultraWide",
 };
 
-export const getHeroClass = (vpType) => {
-	return heroStyles[`copper_heroImage_${vpType}`];
+export const getHeroClass = (vpType, entered) => {
+	return entered
+		? heroStyles[`copper_heroImage_enter_${vpTypes[vpType]}`]
+		: heroStyles[`copper_heroImage_${vpTypes[vpType]}`];
 };
 
 export const getHeroDims = (key, afterAnim) => {
@@ -85,15 +87,12 @@ export const getDeviceBasedClass = () => {
 export const setHeroScale = (e, force) => {
 	if (Router.asPath === "/menu") return;
 	let em = document.getElementById(ids.copper_heroImage);
-	// let hasEntered = store.getState().UI.landing.heroEntered;
 	em.style.transition = "unset";
 	let vpType = getDeviceBasedClass();
 	let dms = getHeroDims(vpType, true);
 	em.style.width = `${dms.width}px`;
 	em.style.height = `${dms.height}px`;
-	// let b = hasEntered ? "copper_heroImage_enter" : "copper_heroImage";
-	// let _em = clearOldClasses(vpType, em, b);
-	// _em.classList.add(heroStyles[`${b}_${vpType}`]);
+	em.classList.add(getHeroClass(vpType, true));
 };
 
 export const resizeObserver = () => {

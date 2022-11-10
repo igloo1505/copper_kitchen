@@ -2,7 +2,6 @@ import * as ids from "../utils/domIDs";
 import gsap from "gsap";
 import heroStyles from "../styles/Hero.module.scss";
 import {
-	clearOldClasses,
 	getDeviceBasedClass,
 	getHeroDims,
 	getHeroClass,
@@ -25,7 +24,8 @@ export const onInitialLoad = (e) => {
 	em.style.width = `${dms.width}px`;
 	em.style.height = `${dms.height}px`;
 	em.style.opacity = 1;
-	em.classList.add(getHeroClass(vpType));
+	let _getHeroClass = getHeroClass(vpType, true);
+	em.classList.add(_getHeroClass);
 	let overlay = document.getElementById(ids.heroOverlay);
 	setTimeout(() => {
 		let newdms = getHeroDims(vpType, true);

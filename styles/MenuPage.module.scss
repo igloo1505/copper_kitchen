@@ -11,13 +11,16 @@ $menu-page-container-minHeight: 90vh;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	overflow-y: scroll;
+	// overflow-y: scroll;
 }
 
 .menuPageInnerContainer {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .permanentSection {
@@ -30,6 +33,8 @@ $menu-page-container-minHeight: 90vh;
 	height: 100%;
 	min-width: 100%;
 	min-height: 100%;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .menuPageTab {
@@ -38,26 +43,27 @@ $menu-page-container-minHeight: 90vh;
 	align-items: center;
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 50%;
 	width: $menu-page-container-width;
 	max-width: $menu-page-container-maxwidth;
 	min-height: $menu-page-container-minHeight;
 	margin-bottom: 2rem;
 	opacity: 0;
+	transform: translateX(-50%);
 	transition: all 0.3s ease-in-out;
 }
 
 .menuPageTab_current {
-	transform: translateX(0px);
+	transform: translateX(-50%);
 	opacity: 1;
 	transition: all 0.3s ease-in-out 0.3s;
 }
 
 .menuPageTab_shiftRight {
 	opacity: 0;
-	transform: translateX(100vw);
+	transform: translateX(calc(100vw - 50%));
 }
 .menuPageTab_shiftLeft {
 	opacity: 0;
-	transform: translateX(-100vw);
+	transform: translateX(calc(-100vw + 50%));
 }
