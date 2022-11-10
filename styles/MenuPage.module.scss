@@ -4,19 +4,20 @@ $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
 
 .menuPageContainer {
 	min-height: 100vh;
-	padding: 3rem 3rem;
+	padding: 3rem 1.2rem;
 	display: flex;
 	position: relative;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
 	// overflow-y: scroll;
+	overflow: hidden;
 }
 
 .menuPageInnerContainer {
 	position: relative;
 	width: 100%;
-	height: 100%;
+	// height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;

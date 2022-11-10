@@ -22,7 +22,6 @@ function MyApp({ Component, pageProps }) {
 				type: Types.HERO_ENTERED,
 				payload: false,
 			});
-			// document.getElementById("__next").style.overflowY = "hidden";
 		}
 	}, [router]);
 
