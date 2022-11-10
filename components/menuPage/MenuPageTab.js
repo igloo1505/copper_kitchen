@@ -6,18 +6,16 @@ import * as ids from "../../utils/domIDs";
 
 const MenuPageTab = ({ UI, index, activeIndex, children }) => {
 	return (
-		<div className={styles.menuPageTabRelWrapper}>
-			<div
-				className={clsx(
-					styles.menuPageTab,
-					activeIndex < index && styles.menuPageTab_shiftRight,
-					activeIndex > index && styles.menuPageTab_shiftLeft,
-					activeIndex === index && styles.menuPageTab_current
-				)}
-				id={ids[`menuPageTab${index}`]}
-			>
-				{children}
-			</div>
+		<div
+			className={clsx(
+				styles.menuPageTab,
+				activeIndex < index && styles.menuPageTab_shiftRight,
+				activeIndex > index && styles.menuPageTab_shiftLeft,
+				activeIndex === index && styles.menuPageTab_current
+			)}
+			id={ids[`menuPageTab${index}`]}
+		>
+			{children}
 		</div>
 	);
 };

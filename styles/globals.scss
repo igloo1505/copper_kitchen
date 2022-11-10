@@ -10,6 +10,10 @@ body {
 	overflow-y: visible;
 }
 
+#__next {
+	overflow-x: hidden;
+}
+
 .titleFont {
 	font-family: "Dancing Script", cursive;
 }

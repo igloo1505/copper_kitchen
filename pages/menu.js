@@ -24,21 +24,28 @@ const Menu = () => {
 
 	return (
 		<div className={styles.menuPageContainer}>
-			<MenuTabs activeIndex={tabIndex} setIndex={setTabIndex} />
-			<div className={styles.menuPageInnerContainer}>
-				<MenuPageTab index={0} activeIndex={tabIndex} initialPage isInitialTab>
-					<Menu_omeletsSkilletsWraps />
-					<Menu_eggsAndSuch />
-					<Menu_breakfastSweets isBottomIndex />
-				</MenuPageTab>
-				<MenuPageTab index={1} activeIndex={tabIndex}>
-					<Menu_burgersAndSandwiches />
-					<Menu_Salad isBottomIndex />
-				</MenuPageTab>
-				<MenuPageTab index={2} activeIndex={tabIndex}>
-					<Menu_weeklySpecials />
-					<Menu_kidsSpecials isBottomIndex />
-				</MenuPageTab>
+			<div className={styles.menuPageTabRelWrapper}>
+				<MenuTabs activeIndex={tabIndex} setIndex={setTabIndex} />
+				<div className={styles.menuPageInnerContainer}>
+					<MenuPageTab
+						index={0}
+						activeIndex={tabIndex}
+						initialPage
+						isInitialTab
+					>
+						<Menu_omeletsSkilletsWraps />
+						<Menu_eggsAndSuch />
+						<Menu_breakfastSweets isBottomIndex />
+					</MenuPageTab>
+					<MenuPageTab index={1} activeIndex={tabIndex}>
+						<Menu_burgersAndSandwiches />
+						<Menu_Salad isBottomIndex />
+					</MenuPageTab>
+					<MenuPageTab index={2} activeIndex={tabIndex}>
+						<Menu_weeklySpecials />
+						<Menu_kidsSpecials isBottomIndex />
+					</MenuPageTab>
+				</div>
 			</div>
 		</div>
 	);
