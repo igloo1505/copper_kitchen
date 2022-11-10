@@ -19,13 +19,14 @@ function MyApp({ Component, pageProps }) {
 		if (typeof window === "undefined") {
 			return;
 		}
-		if (router.asPath !== "/") {
+		if (router.asPath === "/menu") {
 			store.dispatch({
 				type: Types.HERO_ENTERED,
 				payload: false,
 			});
 		}
 	}, [router]);
+
 	useEffect(() => {
 		if (typeof window === "undefined") {
 			return;

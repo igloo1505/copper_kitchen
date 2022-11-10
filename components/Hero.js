@@ -15,7 +15,7 @@ import buttonStyles from "../styles/HeroButton.module.scss";
 import GoogleReview from "./GoogleReview";
 import reviewStyles from "../styles/GoogleReview.module.scss";
 
-const atLibrary = false;
+const atLibrary = true;
 
 const Hero = ({
 	UI: {

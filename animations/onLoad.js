@@ -30,7 +30,7 @@ export const onInitialLoad = (e) => {
 			});
 			setTimeout(() => {
 				_em.style.transition = "unset";
-			}, 500);
+			}, 1000);
 		}, 2000);
 	}, 500);
 };
