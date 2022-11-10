@@ -15,7 +15,6 @@ module.exports = withPWA(
 	withBundleAnalyzer({
 		reactStrictMode: true,
 		poweredByHeader: false,
-		distDir: "build",
 		eslint: {
 			// Warning: This allows production builds to successfully complete even if
 			// your project has ESLint errors.
