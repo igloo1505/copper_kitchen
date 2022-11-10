@@ -4,20 +4,9 @@ import clsx from "clsx";
 import styles from "../../styles/MenuPage.module.scss";
 import * as ids from "../../utils/domIDs";
 
-const MenuPageTab = ({
-	UI,
-	index,
-	activeIndex,
-	children,
-	initialPage,
-	isInitialTab,
-}) => {
-	const [isShown, setIsShown] = useState(false);
+const MenuPageTab = ({ UI, index, activeIndex, children }) => {
 	useEffect(() => {
-		if (activeIndex === index) {
-			return setIsShown(true);
-		}
-		setIsShown(false);
+		console.log("index, activeIndex: ", index, activeIndex);
 	}, [index, activeIndex]);
 
 	return (
@@ -25,7 +14,9 @@ const MenuPageTab = ({
 			<div
 				className={clsx(
 					styles.menuPageTab,
-					initialPage && isInitialTab && styles.menuPageTab_initial
+					activeIndex < index && styles.menuPageTab_shiftRight,
+					activeIndex > index && styles.menuPageTab_shiftLeft,
+					activeIndex === index && styles.menuPageTab_current
 				)}
 				id={ids[`menuPageTab${index}`]}
 			>

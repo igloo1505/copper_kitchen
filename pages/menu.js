@@ -6,6 +6,7 @@ import * as ids from "../utils/domIDs";
 import { data } from "../utils/menuItems";
 import { CategoryEnum } from "../classes/MenuItem";
 import styles from "../styles/MenuPage.module.scss";
+import "animate.css";
 import Menu_Salad from "../components/menuPage/Menu_Salad";
 import Menu_extras from "../components/menuPage/Menu_extras";
 import Menu_eggsAndSuch from "../components/menuPage/Menu_eggsAndSuch";
@@ -17,69 +18,7 @@ import Menu_omeletsSkilletsWraps from "../components/menuPage/Menu_omeletsSkille
 import MenuPageTab from "../components/menuPage/MenuPageTab";
 import { hidden } from "colors";
 import MenuTabs from "../components/MenuTabs";
-
-// const handleTabToggle = (activeIndex, newIndex) => {
-// 	if (typeof window === "undefined") return;
-// 	let activeEm = document.getElementById(ids[`menuPageTab${activeIndex}`]);
-// 	let newEm = document.getElementById(ids[`menuPageTab${newIndex}`]);
-// 	activeEm?.classList.remove(styles.menuPageTab_visible);
-// 	setTimeout(() => {
-// 		newEm?.classList.add(styles.menuPageTab_visible);
-// 	});
-// };
-
-const handleTabToggle = (activeIndex, newIndex) => {
-	console.log("activeIndex, newIndex: ", activeIndex, newIndex);
-	let tl = gsap.timeline();
-	if (typeof window === "undefined") return;
-	let left = activeIndex > newIndex;
-	// NOTE: Exit
-
-	tl.to(`#${ids[`menuPageTab${activeIndex}`]}`, {
-		...(left && { x: "100vw" }),
-		...(!left && { x: "-100vw" }),
-		// ...(left && { rotateZ: 20 }),
-		// ...(!left && { rotateZ: -20 }),
-		duration: 1,
-		ease: "expo.out",
-	});
-	// tl.fromTo(
-	// 	`#${ids[`menuPageTab${activeIndex}`]}`,
-	// 	{
-	// 		x: "-50%",
-	// 	},
-	// 	{
-	// 		...(left && { x: "150vw" }),
-	// 		...(!left && { x: "-150vw" }),
-	// 		// opacity: 0,
-	// 		// ...(left && { rotateZ: 20 }),
-	// 		// ...(!left && { rotateZ: -20 }),
-	// 		duration: 1.5,
-	// 		ease: "expo.out",
-	// 	}
-	// );
-
-	console.log("Running");
-	// debugger;
-	// NOTE: Enter
-	// tl.fromTo(
-	// 	`#${ids[`menuPageTab${newIndex}`]}`,
-	// 	{
-	// 		...(left && { x: "-100vw" }),
-	// 		...(!left && { x: "100vw" }),
-	// 		...(left && { rotateZ: -30 }),
-	// 		...(!left && { rotateZ: 30 }),
-	// 		// visibility: hidden,
-	// 	},
-	// 	{
-	// 		// x: "-50%",
-	// 		x: "-50%",
-	// 		rotateZ: 0,
-	// 		duration: 1,
-	// 		ease: "expo.out",
-	// 	}
-	// );
-};
+// import { handleTabToggle } from "../utils/MenuAnimation";
 
 const Menu = ({ UI, props }) => {
 	const [tabIndex, setTabIndex] = useState(0);
@@ -91,17 +30,17 @@ const Menu = ({ UI, props }) => {
 		if (isInitialTab && tabIndex !== 0) {
 			// debugger;
 			setIsInitialTab(false);
-			allow = true;
-			let em = document
-				.getElementsByClassName(styles.menuPageTab_initial)
-				?.item(0);
 			// BUG Remove or use this
+			// allow = true;
+			// let em = document
+			// 	.getElementsByClassName(styles.menuPageTab_initial)
+			// 	?.item(0);
 			// em?.classList.remove(styles.menuPageTab_initial);
 		}
-		if (!isInitialTab || allow) {
-			handleTabToggle(lastActiveIndex, tabIndex);
-			setLastActiveIndex(tabIndex);
-		}
+		// if (!isInitialTab || allow) {
+		// 	// handleTabToggle(lastActiveIndex, tabIndex);
+		// 	setLastActiveIndex(tabIndex);
+		// }
 	}, [tabIndex]);
 
 	return (
