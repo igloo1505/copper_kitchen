@@ -24,6 +24,7 @@ export const onInitialLoad = (e) => {
 	console.log("dms: ", dms);
 	em.style.width = `${dms.width}px`;
 	em.style.height = `${dms.height}px`;
+	em.style.opacity = 1;
 	em.classList.add(getHeroClass(vpType));
 	let overlay = document.getElementById(ids.heroOverlay);
 	setTimeout(() => {
