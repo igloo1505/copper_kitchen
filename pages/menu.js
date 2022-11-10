@@ -21,17 +21,39 @@ import MenuTabs from "../components/MenuTabs";
 
 const Menu = () => {
 	const [tabIndex, setTabIndex] = useState(0);
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+		let _parent = document.getElementById("menuPageContainer");
+		let _child = document
+			.getElementById(`menuPageTab${tabIndex + 1}-id`)
+			?.getBoundingClientRect();
+		let tabs = document
+			.getElementById("menuTabContainer")
+			?.getBoundingClientRect();
+
+		console.log("tabs: ", tabs);
+		console.log("_child: ", _child);
+		let tHeight = tabs.height + tabs.top + _child.height + 4 * 16 + 8;
+		console.log("tHeight: ", tHeight, window.innerHeight);
+		_parent.style.height = `${tHeight}px`;
+		// document.getElementById("__next").addEventListener("scroll", (e) => {
+		// 	console.log(e.target);
+		// });
+		document.addEventListener("scroll", (e) => {
+			e.stopImmediatePropagation();
+			e.stopImmediatePropagation();
+			e.preventDefault();
+		});
+	}, [tabIndex]);
 
 	return (
-		<div
-			className={styles.menuPageContainer}
-			// onScroll={(e) => {
-			// 	e.preventDefault();
-			// 	e.stopPropagation();
-			// }}
-		>
+		<div className={styles.menuPageContainer} id="menuPageContainer">
 			<div className={styles.menuPageTabRelWrapper}>
-				<MenuTabs activeIndex={tabIndex} setIndex={setTabIndex} />
+				<MenuTabs
+					activeIndex={tabIndex}
+					setIndex={setTabIndex}
+					id="menuTabContainer"
+				/>
 				<div className={styles.menuPageInnerContainer}>
 					<MenuPageTab
 						index={0}

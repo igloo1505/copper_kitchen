@@ -26,9 +26,9 @@ const MenuTab = ({ text, index, activeIndex, setIndex }) => {
 	);
 };
 
-const MenuTabs = ({ activeIndex, setIndex }) => {
+const MenuTabs = ({ activeIndex, setIndex, id }) => {
 	return (
-		<div className={styles.menuTabContainer}>
+		<div className={styles.menuTabContainer} id={id}>
 			<MenuTab
 				text="Breakfast"
 				index={0}

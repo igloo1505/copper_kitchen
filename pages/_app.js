@@ -4,8 +4,6 @@ import "../styles/globals.scss";
 import { Provider } from "react-redux";
 import store from "../state/store";
 import Script from "next/script";
-// import ReactGA from "react-ga4";
-// import ttiPolyfill from "tti-polyfill";
 import { useRouter } from "next/router";
 import { setViewport } from "../state/actions";
 import useSWR, { SWRConfig } from "swr";
@@ -24,10 +22,7 @@ function MyApp({ Component, pageProps }) {
 				type: Types.HERO_ENTERED,
 				payload: false,
 			});
-			document.getElementById("__next").style.overflowY = "hidden";
-		}
-		if (router.asPath !== "/menu") {
-			document.getElementById("__next").style.overflowY = "unset";
+			// document.getElementById("__next").style.overflowY = "hidden";
 		}
 	}, [router]);
 
