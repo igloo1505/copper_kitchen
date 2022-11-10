@@ -19,7 +19,7 @@ export const onInitialLoad = (e) => {
 		}
 		let _em = clearOldClasses(null, em, "copper_heroImage", true);
 		_em.style.transition =
-			"transform 1.5s ease-in-out, width 1.5s ease-in-out, height 1.5s ease-in-out ";
+			"transform 1.5s ease-in-out, width 1.5s ease-in-out 0.5s, height 1.5s ease-in-out 0.5s";
 		_em.classList.add(heroStyles.copper_heroImage_enter);
 		_em.classList.add(heroStyles[`copper_heroImage_enter_${vpType}`]);
 		let hero = document.getElementById(ids.heroOverlay);
