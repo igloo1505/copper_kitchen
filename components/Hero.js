@@ -1,3 +1,4 @@
+const atLibrary = false;
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { connect } from "react-redux";
 import styles from "../styles/Hero.module.scss";
@@ -15,14 +16,13 @@ import buttonStyles from "../styles/HeroButton.module.scss";
 import GoogleReview from "./GoogleReview";
 import reviewStyles from "../styles/GoogleReview.module.scss";
 
-const atLibrary = false;
-
 const Hero = ({
 	UI: {
 		landing: { heroEntered },
 	},
 }) => {
 	const [hoursHovered, setHoursHovered] = useState(true);
+
 	useEffect(() => {
 		if (heroEntered) {
 			animateEntrance({

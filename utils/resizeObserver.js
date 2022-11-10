@@ -11,6 +11,49 @@ let vpTypes = {
 	ultraWide: "ultraWide",
 };
 
+export const getHeroClass = (vpType) => {
+	return heroStyles[`copper_heroImage_${vpType}`];
+};
+
+export const getHeroDims = (key, afterAnim) => {
+	if (typeof window === "undefined") return;
+	let vw = window.innerWidth;
+	let width;
+	if (!afterAnim) {
+		switch (key) {
+			case vpTypes.default:
+				width = 1.6 * vw;
+				break;
+			case vpTypes.narrow:
+				width = 2 * vw;
+				break;
+			case vpTypes.tallNarrow:
+				width = 3 * vw;
+				break;
+			case vpTypes.wide:
+				width = 1.4 * vw;
+				break;
+			case vpTypes.ultraWide:
+				width = 1.4 * vw;
+				break;
+			default:
+				width = 1 * vw;
+		}
+	}
+	if (afterAnim) {
+		if (window.innerHeight <= 1.33 * vw) {
+			width = 1 * vw;
+		}
+		if (window.innerHeight > 1.33 * vw) {
+			width = (1 * window.innerHeight) / 1.33;
+		}
+	}
+	return {
+		width: width,
+		height: 1.333 * width,
+	};
+};
+
 export const clearOldClasses = (newClass, em, baseClass, clearAll) => {
 	Object.keys(vpTypes).forEach((k, i) => {
 		if (newClass === "") clearAll = true;
@@ -42,13 +85,15 @@ export const getDeviceBasedClass = () => {
 export const setHeroScale = (e, force) => {
 	if (Router.asPath === "/menu") return;
 	let em = document.getElementById(ids.copper_heroImage);
-	let hasEntered = store.getState().UI.landing.heroEntered;
+	// let hasEntered = store.getState().UI.landing.heroEntered;
 	em.style.transition = "unset";
 	let vpType = getDeviceBasedClass();
-	let b = hasEntered ? "copper_heroImage_enter" : "copper_heroImage";
-	let _em = clearOldClasses(vpType, em, b);
-	_em.classList.add(heroStyles[`${b}_${vpType}`]);
-	console.log("vpType: ", vpType);
+	let dms = getHeroDims(vpType, true);
+	em.style.width = `${dms.width}px`;
+	em.style.height = `${dms.height}px`;
+	// let b = hasEntered ? "copper_heroImage_enter" : "copper_heroImage";
+	// let _em = clearOldClasses(vpType, em, b);
+	// _em.classList.add(heroStyles[`${b}_${vpType}`]);
 };
 
 export const resizeObserver = () => {
