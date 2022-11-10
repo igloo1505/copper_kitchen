@@ -4,7 +4,7 @@ $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
 $menu-page-container-minHeight: 90vh;
 
 .menuPageContainer {
-	min-height: 90vh;
+	min-height: 100vh;
 	margin: 3rem 3rem;
 	display: flex;
 	flex-direction: column;

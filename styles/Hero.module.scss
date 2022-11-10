@@ -14,16 +14,10 @@
 
 .copper_heroImage {
 	object-fit: cover;
-	// transform-origin: top left;
 	object-position: center;
 	max-width: unset !important;
-	// width: 160vw !important;
-	// height: 213.3vh !important;
 	top: 0px !important;
 	left: 0px !important;
-	// margin-top: 50%;
-	// transform: translate(calc(80vw - 60%), calc(100vh - 64%));
-	// margin-left:  !important;
 	opacity: 0;
 	transition: all 1.5s ease-in-out;
 	overflow-y: visible;
@@ -34,9 +28,6 @@
 .copper_heroImage_enter {
 	object-fit: cover;
 	object-position: center;
-	// width: 100vw !important;
-	// height: 133.333vw !important;
-	// height: auto !important;
 	top: 0 !important;
 	left: 0 !important;
 	transform: translateX(0px);
@@ -44,46 +35,29 @@
 
 // Narrow
 .copper_heroImage_narrow {
-	// width: 200vw !important;
-	// height: 266.666vw !important;
 	transform: translate(calc(100vw - 60%), calc(50vh - 38%));
 }
-// .copper_heroImage_enter_narrow {
-// 	border: 2px solid blue;
-// }
 
 // Tall Narrow
 .copper_heroImage_tallNarrow {
-	// width: 300vw !important;
-	// height: 400vw !important;
-	// height: 236vw !important;
 	transform: translate(calc(100vw - 50%), 0px);
 }
 .copper_heroImage_enter_tallNarrow {
-	// height: 118vw !important;
 	transform: translate(calc(100vw - 70%), 0px);
 }
 
 // Wide
 .copper_heroImage_wide {
-	// width: 140vw !important;
-	// height: 186.66vw !important;
 	transform: translate(calc(70vw - 60%), calc(100vh - 54%));
 }
 .copper_heroImage_enter_wide {
-	// height: 118vw !important;
 	transform: translate(0px, calc(100vh - 93vw));
 }
 
 // Ultra Wide
 .copper_heroImage_ultraWide {
-	// width: 140vw !important;
-	// height: 186.66vw !important;
 	transform: translate(calc(70vw - 60%), calc(100vh - 51%));
 }
-// .copper_heroImage_enter_ultraWide {
-// 	// border: 2px solid pink;
-// }
 
 // End image stuff
 .heroOverlay {
@@ -104,10 +78,8 @@
 	gap: 1rem;
 	grid-template-columns: 60% 40%;
 	place-items: center;
-	// margin: 3rem;
 	height: calc(100% - 4rem);
 	width: calc(100% - 6rem);
-	// padding: min(20vh, 200px) 40px;
 }
 
 .heroOverlay_enter {
