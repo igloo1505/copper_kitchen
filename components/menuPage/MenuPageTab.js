@@ -5,10 +5,6 @@ import styles from "../../styles/MenuPage.module.scss";
 import * as ids from "../../utils/domIDs";
 
 const MenuPageTab = ({ UI, index, activeIndex, children }) => {
-	useEffect(() => {
-		console.log("index, activeIndex: ", index, activeIndex);
-	}, [index, activeIndex]);
-
 	return (
 		<div className={styles.menuPageTabRelWrapper}>
 			<div

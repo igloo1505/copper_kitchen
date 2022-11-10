@@ -16,32 +16,11 @@ import Menu_breakfastSweets from "../components/menuPage/Menu_breakfastSweets";
 import Menu_burgersAndSandwiches from "../components/menuPage/Menu_burgersAndSanwiches";
 import Menu_omeletsSkilletsWraps from "../components/menuPage/Menu_omeletsSkilletsWraps";
 import MenuPageTab from "../components/menuPage/MenuPageTab";
-import { hidden } from "colors";
 import MenuTabs from "../components/MenuTabs";
 // import { handleTabToggle } from "../utils/MenuAnimation";
 
-const Menu = ({ UI, props }) => {
+const Menu = () => {
 	const [tabIndex, setTabIndex] = useState(0);
-	const [lastActiveIndex, setLastActiveIndex] = useState(1);
-	const [isInitialTab, setIsInitialTab] = useState(true);
-	useEffect(() => {
-		// debugger;
-		let allow = false;
-		if (isInitialTab && tabIndex !== 0) {
-			// debugger;
-			setIsInitialTab(false);
-			// BUG Remove or use this
-			// allow = true;
-			// let em = document
-			// 	.getElementsByClassName(styles.menuPageTab_initial)
-			// 	?.item(0);
-			// em?.classList.remove(styles.menuPageTab_initial);
-		}
-		// if (!isInitialTab || allow) {
-		// 	// handleTabToggle(lastActiveIndex, tabIndex);
-		// 	setLastActiveIndex(tabIndex);
-		// }
-	}, [tabIndex]);
 
 	return (
 		<div className={styles.menuPageContainer}>
@@ -65,9 +44,4 @@ const Menu = ({ UI, props }) => {
 	);
 };
 
-const mapStateToProps = (state, props) => ({
-	UI: state.UI,
-	props: props,
-});
-
-export default connect(mapStateToProps)(Menu);
+export default Menu;
