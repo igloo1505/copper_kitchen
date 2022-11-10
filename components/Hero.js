@@ -1,4 +1,4 @@
-const atLibrary = true;
+const atLibrary = false;
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { connect } from "react-redux";
 import styles from "../styles/Hero.module.scss";
