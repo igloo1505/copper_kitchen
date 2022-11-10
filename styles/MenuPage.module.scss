@@ -11,7 +11,7 @@ $menu-page-container-minHeight: 90vh;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	border: 2px solid red;
+	overflow-y: scroll;
 }
 
 .menuPageInnerContainer {
