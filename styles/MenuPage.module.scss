@@ -63,13 +63,13 @@ $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
 }
 
 .menuPageTab_shiftRight {
-	// opacity: 0;
+	opacity: 0;
 	-webkit-transform: translateX(50vw);
 	transform: translateX(50vw);
 }
 
 .menuPageTab_shiftLeft {
-	// opacity: 0;
+	opacity: 0;
 	-webkit-transform: translateX(-150vw);
 	transform: translateX(-150vw);
 }
