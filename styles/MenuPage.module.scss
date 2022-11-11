@@ -10,7 +10,6 @@ $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	// overflow-y: scroll;
 	overflow: hidden;
 }
 
@@ -60,10 +59,11 @@ $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
 }
 
 .menuPageTab_shiftRight {
-	opacity: 0;
+	// opacity: 0;
 	transform: translateX(calc(100vw - 50%));
 }
+
 .menuPageTab_shiftLeft {
-	opacity: 0;
+	// opacity: 0;
 	transform: translateX(calc(-100vw + 50%));
 }
