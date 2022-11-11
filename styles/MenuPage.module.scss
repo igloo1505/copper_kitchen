@@ -48,22 +48,28 @@ $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
 	min-height: 100vh;
 	margin-bottom: 2rem;
 	opacity: 0;
+	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
+	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
 
 .menuPageTab_current {
+	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	opacity: 1;
+	-webkit-transition: all 0.3s ease-in-out 0.3s;
 	transition: all 0.3s ease-in-out 0.3s;
 }
 
 .menuPageTab_shiftRight {
 	// opacity: 0;
+	-webkit-transform: translateX(50vw);
 	transform: translateX(50vw);
 }
 
 .menuPageTab_shiftLeft {
 	// opacity: 0;
+	-webkit-transform: translateX(-150vw);
 	transform: translateX(-150vw);
 }
