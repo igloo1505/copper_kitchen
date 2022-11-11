@@ -60,10 +60,10 @@ $menu-page-container-maxwidth: min(calc(100vw - 6rem), 980px);
 
 .menuPageTab_shiftRight {
 	// opacity: 0;
-	transform: translateX(calc(100vw - 50%));
+	transform: translateX(50vw);
 }
 
 .menuPageTab_shiftLeft {
 	// opacity: 0;
-	transform: translateX(calc(-100vw + 50%));
+	transform: translateX(-150vw);
 }
